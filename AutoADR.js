@@ -31,16 +31,16 @@
         this.buildhut_btn = $('#build_hut');
         this.buildlodge_btn = $('#build_lodge');
         this.ignore_btn = $('#ignore.button');
-        this.ruinedtrap_btn =  $('#ignore');
         this.lonelyhut_btn = $('#location_outside');
         this.room_btn = $('#location_room');
 
 
         /* functions */
-        this.gather_timeout = null;
-        this.room = null;
-        this.village = null;
-        this.build_timeout = null;
+        this.earlygamestoke_TO = null;
+        this.earlygamebuilding_TO = null;
+        this.gather_TO = null;
+        this.silentForest_TO = null;
+        this.noises_TO = null; 
 
         /* Resources */
         this.wood = null;
@@ -62,9 +62,16 @@ if ( document.getElementById('stokeButton') )
  	self.light_btn.click();
     console.log( 'Lighted Fire' );
     }
+//All Noises ignore
+this.noises_TO = window.setInterval(function() {
+    if ( document.getElementById('exitButtons') ) {
+    console.log('exit buttons vorhanden.');
+    this.ignore_btn.click();
+    } 
+}, 1000);
 
 //EARLY GAME (stoke) -> Offload to Function / Module
-	this.earlygame_TO = window.setInterval(function() {
+	this.earlygamestoke_TO = window.setInterval(function() {
 
     this.notification = document.getElementById('notifications').children;
         var i = null;
@@ -95,6 +102,67 @@ if ( !self.traps_btn.hasClass('disabled') ) {
 }
 	}, 5000);
 
+//EARLY GAME build-> Offload to Function / Module
+//Index Build options - pick cheapeast.
+this.earlygamebuild_TO = window.setInterval(function() {
+    var build_options_array = [];
+    build_options_array.push(["Option", "WoodPrice"]);
+    if ( document.getElementById('buildBtns') ) {
+//TRAP
+        if ( document.getElementById('build_trap') ) {
+        this.build_trap = document.getElementById('build_trap').childNodes;
+        //console.log(build_trap);
+        var build_trap_price = this.build_trap[2].children[1];
+            console.log(build_trap_price);
+        build_options_array.push(["Traps", build_trap_price.innerHTML]);
+        console     
+        }
+        console.log( build_options_array );
+//ENDTRAP
+
+//CART
+if ( document.getElementById('build_cart') ) {
+    this.build_cart = document.getElementById('build_cart').childNodes;
+    //console.log(build_cart);
+    var build_cart_price = this.build_cart[2].children[1];
+        console.log(build_cart_price);
+    build_options_array.push(["Cart", build_cart_price.innerHTML]);
+    console     
+    }
+    console.log( build_options_array );
+//ENDCART
+
+//hut
+if ( document.getElementById('build_hut') ) {
+    this.build_hut = document.getElementById('build_hut').childNodes;
+    //console.log(build_hut);
+    var build_hut_price = this.build_hut[2].children[1];
+        console.log(build_hut_price);
+    build_options_array.push(["hut", build_hut_price.innerHTML]);
+    console     
+    }
+    console.log( build_options_array );
+//ENDhut
+
+
+//Find (For Now) chepeast stuff to buy
+build_options_array.sort(compareSecondColumn);
+
+function compareSecondColumn(a, b) {
+    if (a[1] === b[1]) {
+        return 0;
+    }
+    else {
+        return (a[1] < b[1]) ? -1 : 1;
+    }
+}
+
+
+
+    } //END Buttons 
+
+}, 5000);
+//END Earlygame build function
 
 
 }; //End Function Autogame

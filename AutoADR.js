@@ -40,11 +40,15 @@
 
         /* Resources */
         this.wood = null;
-var i;
     };
 
     AutoGame.prototype.start = function() {
         var self = this;
+//Game Start - Only Stoke fire
+ if ( self.gather_btn.hasClass('disabled') ) { 
+ 	self.this.stoke_btn.click();
+}
+Else {
 
         this.room = window.setInterval(function() {
             self.room_btn.click();
@@ -74,17 +78,16 @@ var i;
 
             /* Get Resources */
             this.wood = document.getElementById('row_wood').children;
-var i;
 /*            for (i = 0; i <= this.wood.length - 1; i++) {
                 console.log(this.wood[i].innerHTML);
             }*/
-
            this.wood =  this.wood[1].innerHTML;
            this.console.log( this.wood );
         },
                                           5000);
 
     };
+} //End Else
 
     window.AG = new AutoGame();
     AG.start();

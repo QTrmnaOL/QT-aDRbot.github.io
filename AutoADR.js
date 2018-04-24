@@ -47,8 +47,9 @@ var i;
 
         this.room = window.setInterval(function() {
             self.room_btn.click();
-            /* if ( self.notfication.has
-        /* stoke fire */
+            /* if ( self.notfication.has */
+            /* Stoke fire */ this.stoke_btn
+			if ( !self.this.stoke_btn.hasClass('disabled') ) self.this.stoke_btn.click();
             /* build lodge */
             if ( !self.buildlodge_btn.hasClass('disabled') ) self.buildlodge_btn.click();
             /* build cart */

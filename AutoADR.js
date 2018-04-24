@@ -32,6 +32,7 @@
         this.buildlodge_btn = $('#build_lodge');
 
         this.notification = $('#notification');
+        this.ignore_btn = $('#ignore.button');
         this.ruinedtrap_btn =  $('#ignore');
         this.lonelyhut_btn = $('#location_outside');
         this.room_btn = $('#location_room');
@@ -44,6 +45,8 @@
 
         /* Resources */
         this.wood = null;
+        /* General */
+        this.notification = null;
     };
 
 
@@ -71,6 +74,49 @@ if ( !self.stoke_btn.hasClass('disabled'))
    }
 }, 2000);
 //END Earlygame function
+
+//ONCE light up fire.
+if ( document.getElementById('stokeButton') )
+    {
+ 	self.light_btn.click();
+    console.log( 'Lighted Fire' );
+    }
+
+//EARLY GAME (stoke) -> Offload to Function / Module
+	this.earlygame_TO = window.setInterval(function() {
+
+    this.notification = document.getElementById('notifications').children;
+        var i = null;
+         for (i = 0; i <= this.notification.length - (this.notification.length + 3); i++) {
+                 console.log(this.notification[i].innerHTML);
+             if ( this.notification[i] == 'the room is cold.' ){
+                  self.stoke_btn.click();
+	             console.log( 'Stoked Fire' );
+            }
+         }
+
+	}, 30000);
+
+//A silent Forest
+	this.silentForest_TO = window.setInterval(function() {
+        //Start only when forest is open
+if ( document.getElementById('gatherButton') ) {
+
+if ( !self.gather_btn.hasClass('disabled') ) {
+    self.gather_btn.click();  //Gather
+console.log( 'Gathered Wood' );
+}
+if ( !self.traps_btn.hasClass('disabled') ) {
+    self.traps_btn.click(); // Collect traps
+    console.log( 'Collected Traps' );
+}
+}
+	}, 5000);
+
+
+
+
+//END Earlygame (stoke) function
 
 }; //End Function Autogame
 

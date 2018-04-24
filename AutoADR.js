@@ -18,6 +18,7 @@
         delete window.AG;
     }
 
+//GAME Definitions
     var AutoGame = function() {
         /* Buttons */
         this.stoke_btn = $('#stokeButton');
@@ -29,7 +30,7 @@
         this.buildtrap_btn = $('#build_trap');
         this.buildhut_btn = $('#build_hut');
         this.buildlodge_btn = $('#build_lodge');
-       
+
         this.notification = $('#notification');
         this.ruinedtrap_btn =  $('#ignore');
         this.lonelyhut_btn = $('#location_outside');
@@ -45,24 +46,25 @@
         this.wood = null;
     };
 
-    AutoGame.prototype.start = function() {
+
+    //GAME START
+AutoGame.prototype.start = function() {
         var self = this;
 
-setTimeout(function(){
-    //do what you need here
-}, 2000);
+//EARLY GAME -> Offload to Function / Module
+if ( self.stoke_btn.length > 0 )
+    {
+ 	self.light_btn.click();
+    } else {
+         if ( self.gather_btn.length > 0 )
+         {
+ 	     self.this.stoke_btn.click();
+         }
+    }
 
-if ( self.gather_btn.length > 0 ) { 
- 	self.this.stoke_btn.click();
-}
-
-Else {
-
-        this.room = window.setInterval(function() {
+    this.room = window.setInterval(function() {
             self.room_btn.click();
-            /* if ( self.notfication.has */
-            /* Stoke fire */ this.stoke_btn
-			if ( !self.this.stoke_btn.hasClass('disabled') ) self.this.stoke_btn.click();
+			if ( !self.stoke_btn.hasClass('disabled') ) self.this.stoke_btn.click();
             /* build lodge */
             if ( !self.buildlodge_btn.hasClass('disabled') ) self.buildlodge_btn.click();
             /* build cart */
@@ -93,12 +95,10 @@ Else {
         },
                                           5000);
 
-    };
 
-} //End Else
+}; //End Function Autogame
+
 
     window.AG = new AutoGame();
     AG.start();
-
-
 })();

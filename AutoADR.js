@@ -30,11 +30,11 @@
         this.buildtrap_btn = $('#build_trap');
         this.buildhut_btn = $('#build_hut');
         this.buildlodge_btn = $('#build_lodge');
-
-        this.notification = $('#notification');
+        this.ignore_btn = $('#ignore.button');
         this.ruinedtrap_btn =  $('#ignore');
         this.lonelyhut_btn = $('#location_outside');
         this.room_btn = $('#location_room');
+
 
         /* functions */
         this.gather_timeout = null;
@@ -78,15 +78,23 @@ if ( document.getElementById('stokeButton') )
 
 	}, 30000);
 
-//Village
+//A silent Forest
+	this.silentForest_TO = window.setInterval(function() {
+        //Start only when forest is open
+if ( document.getElementById('gatherButton') ) {
 
-//else{
-	//window.setInterval(function() {
-		//self.stoke_btn.click();
-	      //     console.log( 'Stoked Fire longterm' );
-	        // stokeCount = stokeCount + 1;
-	//}, 30000);
-//}
+if ( !self.gather_btn.hasClass('disabled') ) {
+    self.gather_btn.click();  //Gather
+console.log( 'Gathered Wood' );
+}
+if ( !self.traps_btn.hasClass('disabled') ) {
+    self.traps_btn.click(); // Collect traps
+    console.log( 'Collected Traps' );
+}
+}
+	}, 5000);
+
+
 
 
 //END Earlygame (stoke) function

@@ -34,7 +34,6 @@
         this.lonelyhut_btn = $('#location_outside');
         this.room_btn = $('#location_room');
 
-
         /* functions */
         this.earlygamestoke_TO = null;
         this.earlygamebuilding_TO = null;
@@ -47,6 +46,7 @@
 
         /* General */
         this.notification = null;
+        this.RestartSession = '';
     };
 
 
@@ -76,24 +76,42 @@ if ( document.getElementById('stokeButton') )
             }
          }
 
-	}, 30000);
+	}, 1000);
 //END Earlygame (stoke) function
-    
+//RESET when Forest shows up.
+var header = document.getElementById('header');
+console.log(header.children.length);
+if ( header.children.length == 2 ) {
+    if (this.RestartSession = 'X')
+    // BIG FAT Nono, infinite loop. Switch doesnt work yet.
+// window.AG = new AutoGame();
+// AG.start();
+this.RestartSession = '';
+}
 //A silent Forest
 this.silentForest_TO = window.setInterval(function() {
+    if ( header.children.length == 1 ) {
+    this.RestartSession = 'X';
+    }
+    if ( !self.gather_btn.hasClass('disabled') ) self.gather_btn.click();
+    if ( !self.traps_btn.hasClass('disabled') ) self.traps_btn.click();
+    //           /* Collect traps */
+    //           if ( !self.traps_btn.hasClass('disabled') ) self.traps_btn.click();
+    //           /* Collect traps */
         //Start only when forest is open
-if ( document.getElementById('gatherButton') ) {
+// if ( document.getElementById('gatherButton') ) {
+//     if (!self.gather_btn.hasClass('cooldown')){
+// if ( !self.gather_btn.hasClass('disabled') ) {
+//     self.gather_btn.click();  //Gather
+//     console.log( 'Gathered Wood' );
+// }}
+// if (!self.traps_btn.hasClass('cooldown')){
+// if ( !self.traps_btn.hasClass('disabled') ) {
+//     self.traps_btn.click(); // Collect traps
+//     console.log( 'Collected Traps' );
+// }}}
 
-if ( !self.gather_btn.hasClass('disabled') ) {
-    self.gather_btn.click();  //Gather
-console.log( 'Gathered Wood' );
-}
-if ( !self.traps_btn.hasClass('disabled') ) {
-    self.traps_btn.click(); // Collect traps
-    console.log( 'Collected Traps' );
-}
-}
-	}, 5000);
+	}, 1000);
 
 //EARLY GAME build-> Offload to Function / Module
 //Index Build options - pick cheapeast.

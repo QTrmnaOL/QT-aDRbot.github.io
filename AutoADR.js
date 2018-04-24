@@ -54,6 +54,7 @@ setTimeout(function(){
 
 //Game Start - Only Stoke fire
 <<<<<<< HEAD
+<<<<<<< HEAD
 // IF light button exists, start game
 if ( document.getElementById('lightButton')){
 //if ( $('#lightButton').length > 0 ) { 
@@ -66,6 +67,8 @@ self.this.light_btn.click();
 	self.this.stoke_btn.click();
 	}
 =======
+=======
+>>>>>>> parent of 942a8e5... -
 if ( self.gather_btn.length > 0 ) { 
  	self.this.stoke_btn.click();
 >>>>>>> parent of 942a8e5... -

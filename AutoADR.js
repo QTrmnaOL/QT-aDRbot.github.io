@@ -60,22 +60,15 @@ var stokeCount = 1;
 if ( document.getElementById('stokeButton') )
     {
  	self.light_btn.click();
-    console.log( 'Lighted Fire' );
+    console.log( 'light Fire' );
     }
-//All Noises ignore
-this.noises_TO = window.setInterval(function() {
-    if ( document.getElementById('exitButtons') ) {
-    console.log('exit buttons vorhanden.');
-    this.ignore_btn.click();
-    } 
-}, 1000);
+
 
 //EARLY GAME (stoke) -> Offload to Function / Module
 	this.earlygamestoke_TO = window.setInterval(function() {
 
     this.notification = document.getElementById('notifications').children;
-        var i = null;
-         for (i = 0; i <= this.notification.length - (this.notification.length + 3); i++) {
+         for (var i = 0; i <= this.notification.length - (this.notification.length + 3); i++) {
                  console.log(this.notification[i].innerHTML);
              if ( this.notification[i] == 'the room is cold.' ){
                   self.stoke_btn.click();
@@ -106,48 +99,31 @@ if ( !self.traps_btn.hasClass('disabled') ) {
 //Index Build options - pick cheapeast.
 this.earlygamebuild_TO = window.setInterval(function() {
     var build_options_array = [];
+    var build_array = [[]];
     build_options_array.push(["Option", "WoodPrice"]);
     if ( document.getElementById('buildBtns') ) {
-//TRAP
-        if ( document.getElementById('build_trap') ) {
-        this.build_trap = document.getElementById('build_trap').childNodes;
+
+
+//Loop Over Build Options
+var allBuildOptions = ['build_trap', 'build_cart', 'build_hut'];
+
+for (var i = 0; i <= allBuildOptions.length - 1; i++) {
+    if ( document.getElementById(allBuildOptions[i]) ) {
+        this.build = document.getElementById(allBuildOptions[i]).childNodes;
         //console.log(build_trap);
-        var build_trap_price = this.build_trap[2].children[1];
-            console.log(build_trap_price);
-        build_options_array.push(["Traps", build_trap_price.innerHTML]);
-        console     
-        }
-        console.log( build_options_array );
-//ENDTRAP
-
-//CART
-if ( document.getElementById('build_cart') ) {
-    this.build_cart = document.getElementById('build_cart').childNodes;
-    //console.log(build_cart);
-    var build_cart_price = this.build_cart[2].children[1];
-        console.log(build_cart_price);
-    build_options_array.push(["Cart", build_cart_price.innerHTML]);
-    console     
-    }
-    console.log( build_options_array );
-//ENDCART
-
-//hut
-if ( document.getElementById('build_hut') ) {
-    this.build_hut = document.getElementById('build_hut').childNodes;
-    //console.log(build_hut);
-    var build_hut_price = this.build_hut[2].children[1];
-        console.log(build_hut_price);
-    build_options_array.push(["hut", build_hut_price.innerHTML]);
-    console     
-    }
-    console.log( build_options_array );
-//ENDhut
+        var build_price = this.build[2].children[1].innerHTML;
+            build_price = parseInt(build_price, 10);
+            build_array[i] = [];
+            build_array[i][0] = allBuildOptions[i];
+            build_array[i][1] = build_price;
+            //build_array.push([[allBuildOptions[i], build_price]]);    
+        }       
+}
 
 
 //Find (For Now) chepeast stuff to buy
-build_options_array.sort(compareSecondColumn);
-
+//console.log( build_array );
+build_array.sort(compareSecondColumn);
 function compareSecondColumn(a, b) {
     if (a[1] === b[1]) {
         return 0;
@@ -156,8 +132,15 @@ function compareSecondColumn(a, b) {
         return (a[1] < b[1]) ? -1 : 1;
     }
 }
-
-
+var build_this;
+build_this = build_array[0][0];
+//console.log( build_array );
+switch (build_this) {
+    case 'build_hut': self.buildhut_btn.click();  break;//Build Hut option
+    case 'build_cart': self.buildcart_btn.click();  break;//Build cart option
+    case 'build_trap': self.buildtrap_btn.click();  break;//Build trap option
+    console.log(build_this);
+}
 
     } //END Buttons 
 

@@ -47,6 +47,11 @@
 
     AutoGame.prototype.start = function() {
         var self = this;
+
+setTimeout(function(){
+    //do what you need here
+}, 2000);
+
 //Game Start - Only Stoke fire
 // IF light button exists, start game
 if ( document.getElementById('lightButton')){

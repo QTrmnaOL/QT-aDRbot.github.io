@@ -48,13 +48,15 @@
     AutoGame.prototype.start = function() {
         var self = this;
 //Game Start - Only Stoke fire
+// IF light button exists, start game
+if ( $('#lightButton') > 0 ) { 
+	self.this.light_btn.click();
+}
+// If stoke button exists, game started, stoke fire.
 if not ( $('#gatherButton') > 0 ) { 
 	if not ( $('#stokeButton') > 0 ) { 
-	self.this.light_btn.click();
+	self.this.stoke_btn.click();
 	}
-		else{
- 		self.this.stoke_btn.click();
-		}
 }
 
 Else {

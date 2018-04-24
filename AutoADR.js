@@ -6,7 +6,7 @@
 // @author       You
 // @match        http://adarkroom.doublespeakgames.com/
 // @grant        none
-//@include 		 *http://adarkroom.doublespeakgames.com/*
+// @include 		 *http://adarkroom.doublespeakgames.com/*
 // ==/UserScript==
 
 (function() {

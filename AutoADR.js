@@ -51,6 +51,7 @@
 AutoGame.prototype.start = function() {
         var self = this;
 
+<<<<<<< HEAD
 //EARLY GAME -> Offload to Function / Module
 if ( self.stoke_btn.length > 0 )
     {
@@ -97,8 +98,82 @@ if ( self.stoke_btn.length > 0 )
 
 
 }; //End Function Autogame
+=======
+//ONCE light up fire.
+if ( !document.getElementById('stokeButton') )
+    {
+ 	self.light_btn.click();
+    console.log( 'Lighted Fire' );
+    }
+
+//EARLY GAME -> Offload to Function / Module
+this.earlygame_TO = window.setInterval(function() {
+if ( !self.stoke_btn.hasClass('disabled'))
+         {
+ 	     self.stoke_btn.click();
+             console.log( 'Stoked Fire' );
+         }
+   else
+   {
+       console.log( 'Stoke Fire Disabled' );
+   }
+}, 2000);
+//END Earlygame function
+
+}; //End Function Autogame
+
+AutoGame.prototype.reset = function() {
+	if ( this.earlygame_TO )
+		window.clearInterval(this.gather_timeout);
+	if ( this.build_timeout )
+		window.clearInterval(this.build_timeout);
+};
 
 
+console.log( 'restart');
     window.AG = new AutoGame();
     AG.start();
 })();
+
+
+
+>>>>>>> master
+
+  //   this.room = window.setInterval(function() {
+  //           self.room_btn.click();
+		// 	if ( !self.stoke_btn.hasClass('disabled') ) self.this.stoke_btn.click();
+  //           /* build lodge */
+  //           if ( !self.buildlodge_btn.hasClass('disabled') ) self.buildlodge_btn.click();
+  //           /* build cart */
+  //           if ( !self.buildcart_btn.hasClass('disabled') ) self.buildcart_btn.click();
+  //           /* build trap */
+  //           if ( !self.buildtrap_btn.hasClass('disabled') ) self.buildtrap_btn.click();
+  //           /* build hut */
+  //           if ( !self.buildhut_btn.hasClass('disabled') ) self.buildhut_btn.click();
+  //       },
+  //                                      5000);
+
+<<<<<<< HEAD
+    window.AG = new AutoGame();
+    AG.start();
+})();
+=======
+  //       this.village = window.setInterval(function() {
+  //           self.lonelyhut_btn.click();
+  //           /* if ( !self.stoke_btn.hasClass('disabled') ) self.stoke_btn.click();
+		// /* Collect wood */
+  //           if ( !self.gather_btn.hasClass('disabled') ) self.gather_btn.click();
+  //           /* Collect traps */
+  //           if ( !self.traps_btn.hasClass('disabled') ) self.traps_btn.click();
+  //           /* Collect traps */
+  //           if ( !self.ruinedtrap_btn.hasClass('disabled') ) self.traps_btn.click();
+  //           /* Get Resources */
+  //           this.wood = document.getElementById('row_wood').children;
+		// 	/* for (i = 0; i <= this.wood.length - 1; i++) {
+  //               console.log(this.wood[i].innerHTML);
+  //           }*/
+  //          this.wood =  this.wood[1].innerHTML;
+  //          this.console.log( this.wood );
+  //       },
+  //                                         5000);
+>>>>>>> master

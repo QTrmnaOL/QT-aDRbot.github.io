@@ -88,10 +88,9 @@ Else {
             if ( !self.traps_btn.hasClass('disabled') ) self.traps_btn.click();
             /* Collect traps */
             if ( !self.ruinedtrap_btn.hasClass('disabled') ) self.traps_btn.click();
-
             /* Get Resources */
             this.wood = document.getElementById('row_wood').children;
-/*            for (i = 0; i <= this.wood.length - 1; i++) {
+			/* for (i = 0; i <= this.wood.length - 1; i++) {
                 console.log(this.wood[i].innerHTML);
             }*/
            this.wood =  this.wood[1].innerHTML;
@@ -100,6 +99,7 @@ Else {
                                           5000);
 
     };
+
 } //End Else
 
     window.AG = new AutoGame();

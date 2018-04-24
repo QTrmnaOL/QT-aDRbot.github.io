@@ -10,5 +10,5 @@
 
 var script = document.createElement('script');
 script.id = 'AutoADR-Script';
-script.src = 'https://raw.githubusercontent.com/QTrmnaOL/QTrmnaOL.github.io/master/aDarkRoom/AutoADR.js';
+script.src = 'https://raw.githubusercontent.com/QTrmnaOL/QT-aDRbot.github.io/master/AutoADR.js';
 document.head.appendChild(script);

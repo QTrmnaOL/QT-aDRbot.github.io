@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         AutoADR
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      v0.1 alpha
 // @description  try to take over the world!
 // @author       You
 // @match        http://adarkroom.doublespeakgames.com/

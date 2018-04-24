@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         AutoADR Testing
 // @namespace    https://raw.githubusercontent.com/QTrmnaOL/QTrmnaOL.github.io/
-// @version      0.1
+// @version      V 0.1, alpha.
 // @description  try to automate ADR
 // @author       You
 // @match        http://adarkroom.doublespeakgames.com/

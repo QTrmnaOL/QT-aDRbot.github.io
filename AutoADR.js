@@ -45,9 +45,10 @@
     AutoGame.prototype.start = function() {
         var self = this;
 //Game Start - Only Stoke fire
- if ( self.gather_btn.hasClass('disabled') ) { 
+if ( self.gather_btn.length > 0 ) { 
  	self.this.stoke_btn.click();
 }
+
 Else {
 
         this.room = window.setInterval(function() {

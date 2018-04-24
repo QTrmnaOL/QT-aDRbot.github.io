@@ -20,13 +20,16 @@
 
     var AutoGame = function() {
         /* Buttons */
+        this.stoke_btn = $('#stokeButton');
+ 		this.light_btn = $('#lightButton');
+
         this.gather_btn = $('#gatherButton');
         this.traps_btn = $('#trapsButton');
         this.buildcart_btn = $('#build_cart');
         this.buildtrap_btn = $('#build_trap');
         this.buildhut_btn = $('#build_hut');
         this.buildlodge_btn = $('#build_lodge');
-        this.stoke_btn = $('#stokeButton');
+       
         this.notification = $('#notification');
         this.ruinedtrap_btn =  $('#ignore');
         this.lonelyhut_btn = $('#location_outside');
@@ -46,7 +49,12 @@
         var self = this;
 //Game Start - Only Stoke fire
 if not ( $('#gatherButton') > 0 ) { 
- 	self.this.stoke_btn.click();
+	if not ( $('#stokeButton') > 0 ) { 
+	self.this.light_btn.click();
+	}
+		else{
+ 		self.this.stoke_btn.click();
+		}
 }
 
 Else {

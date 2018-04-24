@@ -51,7 +51,6 @@
 AutoGame.prototype.start = function() {
         var self = this;
 
-<<<<<<< HEAD
 //EARLY GAME -> Offload to Function / Module
 if ( self.stoke_btn.length > 0 )
     {
@@ -98,7 +97,7 @@ if ( self.stoke_btn.length > 0 )
 
 
 }; //End Function Autogame
-=======
+
 //ONCE light up fire.
 if ( !document.getElementById('stokeButton') )
     {
@@ -137,8 +136,6 @@ console.log( 'restart');
 
 
 
->>>>>>> master
-
   //   this.room = window.setInterval(function() {
   //           self.room_btn.click();
 		// 	if ( !self.stoke_btn.hasClass('disabled') ) self.this.stoke_btn.click();
@@ -153,11 +150,6 @@ console.log( 'restart');
   //       },
   //                                      5000);
 
-<<<<<<< HEAD
-    window.AG = new AutoGame();
-    AG.start();
-})();
-=======
   //       this.village = window.setInterval(function() {
   //           self.lonelyhut_btn.click();
   //           /* if ( !self.stoke_btn.hasClass('disabled') ) self.stoke_btn.click();
@@ -176,4 +168,4 @@ console.log( 'restart');
   //          this.console.log( this.wood );
   //       },
   //                                         5000);
->>>>>>> master
+

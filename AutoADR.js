@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         New Userscript
-// @namespace    http://tampermonkey.net/
+// @namespace    https://raw.githubusercontent.com/QTrmnaOL/QTrmnaOL.github.io/
 // @version      0.1
-// @description  try to take over the world!
+// @description  try to automate ADR
 // @author       You
 // @match        http://adarkroom.doublespeakgames.com/
 // @grant        none
+//@include 		 *http://adarkroom.doublespeakgames.com/*
 // ==/UserScript==
 
 (function() {
